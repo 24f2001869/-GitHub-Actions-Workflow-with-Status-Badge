@@ -1,3 +1,4 @@
+[![CI](https://github.com/24f2001869/-GitHub-Actions-Workflow-with-Status-Badge/actions/workflows/ci.yml/badge.svg)](https://github.com/24f2001869/-GitHub-Actions-Workflow-with-Status-Badge/actions/workflows/ci.yml)
 # -GitHub-Actions-Workflow-with-Status-Badge
 # Wikipedia Lookup API
 
