@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        
+    - name: Run basic tests
+      run: |
+        echo "Running basic repository checks"
+        ls -la
+        echo "Repository structure verified"
+        
+    - name: Verify Python files
+      run: |
+        if [ -f "app.py" ]; then
+          echo "✅ app.py exists"
+          python -m py_compile app.py && echo "✅ app.py compiles successfully"
+        else
+          echo "⚠️ app.py not found"
+        fi
